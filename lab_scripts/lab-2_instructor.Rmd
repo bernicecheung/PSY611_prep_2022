@@ -46,11 +46,36 @@ Advantages of organizing R scripts/markdowns with projects:
 
 1. Having separate R environment for each data analysis project, so your analysis and variables won't interfere with each other. 
 
-2. Organize scripts, inputs and outputs with relative paths, so transfering project folder won't affect file locations. 
+2. Organize scripts, inputs and outputs with relative paths, so transferring project folder won't affect file locations. 
 
 ## Directory: Where's my file? 
 
-Directory 
+A directory refers a file path (location). A **working directory** in R is the default file path where R read and save file. You can check the current working directory with `getwd()`
+
+```{r}
+# Print my current working directory
+getwd()
+```
+
+Because I'm using a Mac, sub-folders are separated by `/`. If you use a PC, sub-folders are separated by `\`. 
+
+**The working directory of a R project is where the `.Rproj` file locates.** 
+
+![the current working directory](/Users/BerniceCheung/Dropbox (University of Oregon)/Teaching/PSY611_prep_2022/labs/resources/lab2/wd_dir.png)
+
+You can access the sub folders inside the working directory using relative path: it starts with a `.`, representing the current location (the working directory). Then it follows by a `/{name of the sub-folder}` (mac) or `\{{name of the sub-folder}}` (PC). 
+
+```{r}
+# examples of using relative file directory
+df <- import("./labs/resources/lab2/world_happiness_2015.csv")
+```
+
+or you can use function `here` to locate the directory of a file by adding names of the sub-folders
+
+```{r}
+# examples of using here function
+df <- import(here("labs", "resources", "lab2", "world_happiness_2015.csv"))
+```
 
 
 # Getting Started
@@ -85,7 +110,11 @@ if (!require(here)) {
 4. Import the World Happiness data using the `rio` package and save it to an object called `world_happiness_df`. You can use the `import` function along with the `here` function.  Supplement: [R script style guide](http://adv-r.had.co.nz/Style.html)
 
 ```{r }
+# prep directory
 world_happiness_df <- import(here("data", "world_happiness_2015.csv"))
+
+# lab directory
+#world_happiness_df <- import(here("labs", "resources", "lab2", "world_happiness_2015.csv"))
 ```
 
 Use the `str()` function to see the structure of the dataset. This tells us we have a data frame with 136 observations of 8 different variables: `Country`, `Happiness`, `GDP`, `Support`, `Life`, `Freedom`, `Generosity` and `Corruption`. 
