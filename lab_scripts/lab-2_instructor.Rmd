@@ -40,6 +40,18 @@ Today's lab will cover:
 4. [In-Line R Code](#inline)
 
 ***
+# Recap: R Project
+
+Advantages of organizing R scripts/markdowns with projects: 
+
+1. Having separate R environment for each data analysis project, so your analysis and variables won't interfere with each other. 
+
+2. Organize scripts, inputs and outputs with relative paths, so transfering project folder won't affect file locations. 
+
+## Directory: Where's my file? 
+
+Directory 
+
 
 # Getting Started
 
@@ -47,7 +59,7 @@ We'll use the same 2015 World Happiness Report dataset from lecture throughout t
 
 1. Create a R project
 
-2. Download the data file [here](https://github.com/uopsych/psy611/blob/master/labs/resources/lab2/world_happiness_2015.csv)
+2. Download the data file [here](https://github.com/uopsych/psy611/blob/master/labs/resources/lab2/world_happiness_2015.csv) (right click the file -> Save As)
 
 3. move the `lab-2.Rmd` document and the `world_happiness_2015.csv` file to the appropriate directory within your R project. 
 
